@@ -11,4 +11,5 @@
     <color name="backgroundColor">#FFE6E5</color>
     <color name="primaryColor">#EE7782</color>
     <color name="seekbarColor">#FFD357</color>
+    <color name="textColor">#8C5154</color>
 </resources>

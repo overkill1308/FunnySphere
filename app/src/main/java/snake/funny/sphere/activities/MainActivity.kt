@@ -1,23 +1,37 @@
-package snake.funny.sphere
+package snake.funny.sphere.activities
 
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextPaint
+import android.view.View
 import android.widget.SeekBar
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import snake.funny.sphere.util.CustomOnSeekBarChangeListener
 import com.google.android.material.snackbar.Snackbar
+import com.jakewharton.rxbinding4.view.clicks
 import com.magicgoop.tagsphere.OnTagLongPressedListener
 import com.magicgoop.tagsphere.OnTagTapListener
 import com.magicgoop.tagsphere.item.TagItem
 import com.magicgoop.tagsphere.item.TextTagItem
 import com.magicgoop.tagsphere.utils.EasingFunction
+import nl.dionsegijn.konfetti.core.Party
+import nl.dionsegijn.konfetti.core.Position
+import nl.dionsegijn.konfetti.core.emitter.Emitter
+import snake.funny.sphere.R
 import snake.funny.sphere.databinding.ActivityMainBinding
+import snake.funny.sphere.databinding.DialogResultBinding
 import snake.funny.sphere.util.EmojiConstants
+import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), OnTagLongPressedListener, OnTagTapListener {
 
     lateinit var binding: ActivityMainBinding
+    var listContent: ArrayList<String>? = null
 
     companion object {
         private const val MIN_SENSITIVITY = 1
@@ -31,6 +45,25 @@ class MainActivity : AppCompatActivity(), OnTagLongPressedListener, OnTagTapList
 
         initTagView()
         initSettings()
+
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setNavigationOnClickListener(View.OnClickListener {
+            startActivity(Intent(this@MainActivity, AddListContentActivity::class.java))
+        })
+
+        listContent = ArrayList()
+
+        listContent!!.add("Apple")
+        listContent!!.add("Xiaomi")
+        listContent!!.add("Samsung")
+        listContent!!.add("Huawei")
+        listContent!!.add("Oppo")
+        listContent!!.add("HTC")
+        listContent!!.add("Google")
+        listContent!!.add("Sony")
+        listContent!!.add("LG")
+        listContent!!.add("VSmart")
+
     }
 
     private fun initTagView() {
@@ -105,8 +138,47 @@ class MainActivity : AppCompatActivity(), OnTagLongPressedListener, OnTagTapList
     }
 
     override fun onTap(tagItem: TagItem) {
-        Snackbar
-            .make(binding.tagView, "onTap: " + (tagItem as TextTagItem).text, Snackbar.LENGTH_SHORT)
-            .show()
+//        Snackbar
+//            .make(binding.tagView, "onTap: " + (tagItem as TextTagItem).text, Snackbar.LENGTH_SHORT)
+//            .show()
+        showDialogResult(tagItem)
     }
+
+    private fun showDialogResult(tagItem: TagItem) {
+        val resultBinding: DialogResultBinding = DialogResultBinding.inflate(layoutInflater)
+        val builder = AlertDialog.Builder(this@MainActivity)
+        builder.setView(resultBinding.root)
+
+        val dialog = builder.create()
+
+        resultBinding.tvIcon.text = (tagItem as TextTagItem).text
+        val index = Random.nextInt(listContent!!.size - 1)
+        resultBinding.tvContent.text = listContent!![index]
+
+        resultBinding.btnContinue.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe() {
+            dialog.dismiss()
+        }
+
+        resultBinding.btnRemove.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe() {
+            listContent!!.removeAt(index)
+            Toast.makeText(this@MainActivity, "Deleted Content!", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+
+        val party = Party(
+            speed = 0f,
+            maxSpeed = 30f,
+            damping = 0.9f,
+            spread = 360,
+            colors = listOf(0xfce18a, 0xff726d, 0xf4306d, 0xb48def),
+            emitter = Emitter(duration = 100, TimeUnit.MILLISECONDS).max(100),
+            position = Position.Relative(0.5, 0.3)
+        )
+
+        resultBinding.konfettiView.start(party)
+
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
+    }
+
 }

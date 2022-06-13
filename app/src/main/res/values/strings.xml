@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Funny Sphere</string>
+    <string name="app_name">Lucky Sphere</string>
+
+    <string name="congratulations">Congratulations</string>
+    <string name="custom_content">Custom Content</string>
+    <string name="add_content">Add Content</string>
 </resources>

@@ -8,11 +8,33 @@
     android:fitsSystemWindows="false"
     android:background="@color/backgroundColor">
 
-    <com.magicgoop.tagsphere.TagSphereView
-        android:id="@+id/tagView"
-        android:layout_marginBottom="@dimen/sheet_peek"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_toolbar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/white"
+                app:navigationIcon="@drawable/ic_add"
+                android:id="@+id/toolbar"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.magicgoop.tagsphere.TagSphereView
+            android:id="@+id/tagView"
+            android:layout_marginBottom="@dimen/sheet_peek"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_toolbar"/>
+
+    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

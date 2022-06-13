@@ -43,4 +43,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
     implementation 'com.github.magic-goop:tag-sphere:1.0.0'
+    implementation 'nl.dionsegijn:konfetti-xml:2.0.2'
+    implementation 'nl.dionsegijn:konfetti-compose:2.0.2'
 }
