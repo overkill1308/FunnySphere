@@ -12,4 +12,6 @@
     <color name="primaryColor">#EE7782</color>
     <color name="seekbarColor">#FFD357</color>
     <color name="textColor">#8C5154</color>
+    <color name="deleteColor">#CE1126</color>
+    <color name="editColor">#00B5FF</color>
 </resources>

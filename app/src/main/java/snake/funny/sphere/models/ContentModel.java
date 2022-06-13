@@ -2,20 +2,20 @@ package snake.funny.sphere.models;
 
 public class ContentModel {
 
-    String title;
+    int number;
     String content;
 
-    public ContentModel(String title, String content) {
-        title = title;
-        content = content;
+    public ContentModel(int number, String content) {
+        this.number = number;
+        this.content = content;
     }
 
-    public String getTitle() {
-        return title;
+    public int getNumber() {
+        return number;
     }
 
-    public void setTitle(String title) {
-        title = title;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getContent() {
@@ -23,7 +23,6 @@ public class ContentModel {
     }
 
     public void setContent(String content) {
-        content = content;
+        this.content = content;
     }
-
 }

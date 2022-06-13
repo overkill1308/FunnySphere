@@ -4,4 +4,6 @@
     <string name="congratulations">Congratulations</string>
     <string name="custom_content">Custom Content</string>
     <string name="add_content">Add Content</string>
+    <string name="trash">Trash</string>
+    <string name="edit">Edit</string>
 </resources>

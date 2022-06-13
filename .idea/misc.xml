@@ -5,10 +5,19 @@
       <map>
         <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/drawable/bg_radius_primary.xml" value="0.196" />
         <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/drawable/bg_radius_white.xml" value="0.195" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/drawable/ic_edit.xml" value="0.1855" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/drawable/ic_option_new.xml" value="0.234" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/drawable/ic_trash.xml" value="0.1855" />
         <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/activity_add_list_content.xml" value="0.358695652173913" />
         <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/add_content_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/custom_swipe_layout.xml" value="0.365625" />
         <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/dialog_result.xml" value="0.18697916666666667" />
-        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/item_edit_text_content.xml" value="0.358695652173913" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/item_edit_text_content.xml" value="0.33" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/remove_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/layout/rename_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/menu/menu_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/CODING/FORME/FunnySphere/app/src/main/res/menu/menu_option.xml" value="0.36666666666666664" />
         <entry key="..\:/CODING/FORME/app/src/main/res/drawable/ic_example_1.xml" value="0.2145" />
         <entry key="..\:/CODING/FORME/app/src/main/res/drawable/ic_example_16.xml" value="0.196" />
         <entry key="..\:/CODING/FORME/app/src/main/res/drawable/ic_example_2.xml" value="0.2145" />

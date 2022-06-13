@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="rightColors">
+        <item>@color/editColor</item>
+        <item>@color/deleteColor</item>
+    </integer-array>
+
+    <integer-array name="rightDrawables">
+        <item>@drawable/ic_edit</item>
+        <item>@drawable/ic_trash</item>
+    </integer-array>
+
+    <string-array name="rightTexts">
+        <item>@string/edit</item>
+        <item>@string/trash</item>
+    </string-array>
+</resources>
