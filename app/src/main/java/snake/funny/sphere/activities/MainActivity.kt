@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import snake.funny.sphere.util.CustomOnSeekBarChangeListener
 import com.google.android.material.snackbar.Snackbar
 import com.jakewharton.rxbinding4.view.clicks
+import com.jakewharton.rxbinding4.view.visibility
 import com.magicgoop.tagsphere.OnTagLongPressedListener
 import com.magicgoop.tagsphere.OnTagTapListener
 import com.magicgoop.tagsphere.item.TagItem
@@ -24,6 +25,7 @@ import nl.dionsegijn.konfetti.core.emitter.Emitter
 import snake.funny.sphere.R
 import snake.funny.sphere.databinding.ActivityMainBinding
 import snake.funny.sphere.databinding.DialogResultBinding
+import snake.funny.sphere.util.Common
 import snake.funny.sphere.util.EmojiConstants
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
@@ -51,18 +53,20 @@ class MainActivity : AppCompatActivity(), OnTagLongPressedListener, OnTagTapList
             startActivity(Intent(this@MainActivity, AddListContentActivity::class.java))
         })
 
-        listContent = ArrayList()
+        if (Common.listContent != null) {
+            listContent = Common.listContent
+            binding.layoutEmpty.visibility = View.GONE
+            binding.tagView.visibility = View.VISIBLE
+            binding.layoutSetting.visibility = View.VISIBLE
+        } else {
+            binding.layoutEmpty.visibility = View.VISIBLE
+            binding.tagView.visibility = View.GONE
+            binding.layoutSetting.visibility = View.GONE
+        }
 
-        listContent!!.add("Apple")
-        listContent!!.add("Xiaomi")
-        listContent!!.add("Samsung")
-        listContent!!.add("Huawei")
-        listContent!!.add("Oppo")
-        listContent!!.add("HTC")
-        listContent!!.add("Google")
-        listContent!!.add("Sony")
-        listContent!!.add("LG")
-        listContent!!.add("VSmart")
+        binding.btnCreateList.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe() {
+            startActivity(Intent(this@MainActivity, AddListContentActivity::class.java))
+        }
 
     }
 

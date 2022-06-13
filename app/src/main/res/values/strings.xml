@@ -6,4 +6,6 @@
     <string name="add_content">Add Content</string>
     <string name="trash">Trash</string>
     <string name="edit">Edit</string>
+    <string name="empty_content">Content list is empty!</string>
+    <string name="create_list_content">Create list content now</string>
 </resources>

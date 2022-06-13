@@ -29,14 +29,53 @@
 
         <com.magicgoop.tagsphere.TagSphereView
             android:id="@+id/tagView"
-            android:layout_marginBottom="@dimen/sheet_peek"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/layout_toolbar"/>
+            android:layout_below="@+id/layout_toolbar"
+            android:layout_marginBottom="@dimen/sheet_peek" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_toolbar"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/layoutEmpty">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="206dp"
+                android:layout_height="206dp"
+                app:lottie_rawRes="@raw/empty_list"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_content"
+                android:textSize="14sp"
+                android:textColor="@color/textColor"
+                android:fontFamily="@font/inter_regular"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_radius_primary"
+                android:text="@string/create_list_content"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_medium"
+                android:paddingHorizontal="16dp"
+                android:id="@+id/btnCreateList"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/layoutSetting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#80000000"

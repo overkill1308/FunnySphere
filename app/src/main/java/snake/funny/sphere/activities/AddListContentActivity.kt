@@ -1,6 +1,7 @@
 package snake.funny.sphere.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ import snake.funny.sphere.databinding.RemoveDialogBinding
 import snake.funny.sphere.databinding.RenameDialogBinding
 import snake.funny.sphere.listeners.OnOptionListener
 import snake.funny.sphere.models.ContentModel
+import snake.funny.sphere.util.Common
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -46,6 +48,25 @@ class AddListContentActivity : AppCompatActivity(), OnOptionListener {
         binding.btnAddContent.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe() {
             showDialogAdd()
         }
+
+        binding.btnBack.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe() {
+            onBackPressed()
+        }
+
+        binding.btnSave.clicks().throttleFirst(1, TimeUnit.SECONDS).subscribe() {
+            if (listContent!!.size < 5) {
+                Toast.makeText(this@AddListContentActivity, "List of content with at least 5 items!", Toast.LENGTH_SHORT).show()
+            } else {
+                val listString = ArrayList<String>()
+                for (i in 0 until listContent!!.size) {
+                    listString.addAll(listOf(listContent!![i].content))
+                }
+                Common.listContent = listString
+                startActivity(Intent(this@AddListContentActivity, MainActivity::class.java))
+                finish()
+            }
+        }
+
     }
 
     override fun optionClicked(view: View?, position: Int) {
