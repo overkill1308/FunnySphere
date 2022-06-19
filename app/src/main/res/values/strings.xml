@@ -8,4 +8,9 @@
     <string name="edit">Edit</string>
     <string name="empty_content">Content list is empty!</string>
     <string name="create_list_content">Create list content now</string>
+    <string name="emoji_sphere">Emoji Sphere</string>
+    <string name="tag_sphere">Tag Sphere</string>
+    <string name="history">History</string>
+    <string name="funny_emoji_sphere">Funny Emoji Sphere</string>
+
 </resources>

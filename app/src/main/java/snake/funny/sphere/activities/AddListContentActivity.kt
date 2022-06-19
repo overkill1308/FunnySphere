@@ -21,7 +21,6 @@ import snake.funny.sphere.databinding.RenameDialogBinding
 import snake.funny.sphere.listeners.OnOptionListener
 import snake.funny.sphere.models.ContentModel
 import snake.funny.sphere.util.Common
-import java.io.File
 import java.util.concurrent.TimeUnit
 
 class AddListContentActivity : AppCompatActivity(), OnOptionListener {
@@ -40,6 +39,7 @@ class AddListContentActivity : AppCompatActivity(), OnOptionListener {
         listContent!!.add(ContentModel(2, "Content 2"))
         listContent!!.add(ContentModel(3, "Content 3"))
         listContent!!.add(ContentModel(4, "Content 4"))
+        listContent!!.add(ContentModel(5, "Content 5"))
 
         addContentAdapter = AddContentAdapter(listContent!!, this@AddListContentActivity)
         binding.rvContent.layoutManager = LinearLayoutManager(this@AddListContentActivity)
@@ -62,7 +62,7 @@ class AddListContentActivity : AppCompatActivity(), OnOptionListener {
                     listString.addAll(listOf(listContent!![i].content))
                 }
                 Common.listContent = listString
-                startActivity(Intent(this@AddListContentActivity, MainActivity::class.java))
+                startActivity(Intent(this@AddListContentActivity, PlayActivity::class.java))
                 finish()
             }
         }
